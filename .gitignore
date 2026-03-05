@@ -1,0 +1,22 @@
+# Environnement virtuel
+venv/
+
+# Variables d'environnement (clés API)
+.env
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# VS Code
+.vscode/
+
+# Fichiers temporaires
+*.tmp
+*.log
+
+# Outputs
+sample_forms/
