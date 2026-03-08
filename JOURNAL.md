@@ -21,3 +21,26 @@
 
 ### Prochaine étape
 - Implémenter les modules d'extraction PDF, TXT et image
+---
+
+## Partie 2 — Extraction de documents
+**Date :** 07/03/2026  
+
+
+### Ce qui a été fait
+- Implémentation PDFExtractor avec pdfplumber + PyPDF2 en fallback
+- Implémentation ImageExtractor avec OCR Tesseract
+- Gestion des formats supportés : PDF, TXT, PNG, JPG
+- Prétraitement des images pour améliorer la qualité OCR
+
+### Difficultés rencontrées
+- Certains PDFs non lisibles par pdfplumber → fallback PyPDF2
+- Qualité OCR variable selon les images → ajout prétraitement contraste/sharpen
+
+### Choix techniques
+- Double librairie PDF pour robustesse maximale
+- Prétraitement image automatique avant OCR
+- Extraction des métadonnées PDF en plus du texte
+
+### Prochaine étape
+- Intégration de l'IA pour extraction contextuelle des champs
