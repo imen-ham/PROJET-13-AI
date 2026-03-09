@@ -44,3 +44,27 @@
 
 ### Prochaine étape
 - Intégration de l'IA pour extraction contextuelle des champs
+
+## Partie 3 — Intégration IA
+**Date :** 09/03/2026  
+
+
+### Ce qui a été fait
+- Implémentation AIExtractor avec support Groq, Anthropic et Mock
+- Création SchemaManager avec 3 schémas prédéfinis (générique, facture, médical)
+- Prompt engineering pour extraction structurée en JSON
+- Parsing robuste des réponses JSON de l'IA
+- Sécurisation des clés API dans l'interface
+
+### Difficultés rencontrées
+- Parsing JSON instable → ajout nettoyage regex
+- Incompatibilité groq==0.9.0 → résolu avec groq==0.11.0 + httpx==0.27.0
+- Clé API visible dans l'interface → masquage avec placeholder
+
+### Choix techniques
+- Groq LLaMA3-70b : gratuit, rapide et précis
+- Mode mock pour démo sans clé API
+- JSON Schema comme contrat d'extraction
+
+### Prochaine étape
+- Implémenter la validation des données et scores de confiance
