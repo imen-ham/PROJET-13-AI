@@ -1,8 +1,8 @@
-# 📓 Journal de Développement — Projet 13 : FormExtract AI
+#  Journal de Développement — Projet 13 : FormExtract AI
 
 ## Partie 1 — Initialisation du projet
 **Date :** 05/03/2026  
-**Durée :** ~1h  
+ 
 
 ### Ce qui a été fait
 - Création de la structure complète du projet
@@ -68,3 +68,26 @@
 
 ### Prochaine étape
 - Implémenter la validation des données et scores de confiance
+---
+
+## Partie 4 — Validation des données
+**Date :** 11/03/2026  
+
+### Ce qui a été fait
+- Implémentation DataValidator avec validation par type et format
+- Validation email, date, nombre et pattern regex
+- Score de confiance par champ (0.0 à 1.0)
+- Détection automatique des champs obligatoires manquants
+- Statuts : high_confidence, medium_confidence, low_confidence, invalid, missing
+
+### Difficultés rencontrées
+- Formats de dates multiples à gérer (DD/MM/YYYY, YYYY-MM-DD, DD.MM.YYYY...)
+- Définir des seuils de confiance pertinents et compréhensibles
+
+### Choix techniques
+- Seuil de confiance à 0.7 pour déclencher une révision manuelle
+- Support de 5 formats de dates différents
+- Enrichissement des données avec métadonnées de validation
+
+### Prochaine étape
+- Développer l'interface Streamlit complète avec les composants UI
