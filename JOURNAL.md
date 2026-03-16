@@ -117,3 +117,29 @@
 
 ### Prochaine étape
 - Finalisation : README, SPEC, tests unitaires
+---
+
+## Partie 6 — Finalisation du projet
+**Date :** 15/03/2026 
+### Ce qui a été fait
+- Rédaction du README complet avec guide d'installation
+- Rédaction des specifications techniques (SPEC.md)
+- Implémentation de 34 tests unitaires (pytest)
+- Tests validation email, date, nombre, champs obligatoires
+- Tests extraction schémas et parsing JSON
+- Vérification complète du projet end-to-end
+
+### Difficultés rencontrées
+- Adaptation des tests au mode mock sans clé API
+- Organisation des tests par module pour plus de clarté
+
+### Choix techniques
+- pytest comme framework de test standard Python
+- 3 fichiers de tests séparés par module
+- SPEC.md pour documenter l'architecture technique complète
+
+### Bilan du projet
+- 6 parties développées sur 10 jours
+- Application complète et fonctionnelle
+- 34 tests unitaires passés avec succès
+- Interface professionnelle et intuitive
