@@ -94,7 +94,7 @@
 ---
 
 ## Partie 5 — Interface Streamlit
-**Date :** 13/03/2026  
+**Date :** 15/03/2026  
 
 
 ### Ce qui a été fait
