@@ -9,7 +9,7 @@
 
 ---
 
-## 🎯 Problématique
+##  Problématique
 
 Dans un contexte professionnel, la saisie manuelle de données issues de formulaires
 est chronophage et source d'erreurs. Ce projet automatise l'extraction, la validation
@@ -17,20 +17,20 @@ et l'export de ces données grâce à l'intelligence artificielle.
 
 ---
 
-## ✨ Fonctionnalités
+##  Fonctionnalités
 
-- 📤 **Upload** de formulaires PDF, TXT, PNG, JPG
-- 🤖 **Extraction IA** via Groq (LLaMA3) ou Anthropic (Claude)
-- 📋 **Schémas JSON** personnalisables (formulaire, facture, médical...)
-- ✅ **Validation automatique** des données extraites
-- 🎯 **Score de confiance** par champ extrait
-- ✏️ **Correction manuelle** dans l'interface
-- 📥 **Export** JSON et CSV
-- 🎭 **Mode démo** sans clé API
+-  **Upload** de formulaires PDF, TXT, PNG, JPG
+-  **Extraction IA** via Groq (LLaMA3) ou Anthropic (Claude)
+-  **Schémas JSON** personnalisables (formulaire, facture, médical...)
+-  **Validation automatique** des données extraites
+-  **Score de confiance** par champ extrait
+-  **Correction manuelle** dans l'interface
+-  **Export** JSON et CSV
+-  **Mode démo** sans clé API
 
 ---
 
-## 🏗️ Architecture
+##  Architecture
 ```
 PROJET-13-AI/
 ├── app/
@@ -52,7 +52,7 @@ PROJET-13-AI/
 
 ---
 
-## 🚀 Installation
+##  Installation
 
 ### 1. Cloner le projet
 ```bash
@@ -84,17 +84,17 @@ streamlit run main.py
 
 ---
 
-## 🔑 Configuration API
+##  Configuration API
 
 | Provider | Gratuit | Lien |
 |---|---|---|
-| **Groq** | ✅ Oui | https://console.groq.com |
-| **Anthropic** | ❌ Non | https://console.anthropic.com |
-| **Mock** | ✅ Oui | Aucune clé requise |
+| **Groq** |  Oui | https://console.groq.com |
+| **Anthropic** |  Non | https://console.anthropic.com |
+| **Mock** |  Oui | Aucune clé requise |
 
 ---
 
-## 📋 Schémas disponibles
+##  Schémas disponibles
 
 | Schéma | Champs |
 |---|---|
@@ -104,7 +104,7 @@ streamlit run main.py
 
 ---
 
-## 🛠️ Technologies
+##  Technologies
 
 - **Python 3.11**
 - **Streamlit** — Interface utilisateur
@@ -115,12 +115,12 @@ streamlit run main.py
 
 ---
 
-## 📓 Journal de développement
+##  Journal de développement
 
 Voir [JOURNAL.md](./JOURNAL.md) pour le détail de chaque partie.
 
 ---
 
-## 👩‍💻 Auteur
+##  Auteur
 
 **imen-ham** — [GitHub](https://github.com/imen-ham)
