@@ -5,7 +5,7 @@ import io
 class ImageExtractor:
     def __init__(self):
         # Windows: décommente et adapte le chemin
-        # pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
+        pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
         pass
 
     def extract_text(self, file_bytes: bytes, lang: str = "fra+eng") -> dict:

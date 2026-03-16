@@ -91,3 +91,29 @@
 
 ### Prochaine étape
 - Développer l'interface Streamlit complète avec les composants UI
+---
+
+## Partie 5 — Interface Streamlit
+**Date :** 13/03/2026  
+
+
+### Ce qui a été fait
+- Développement interface Streamlit complète avec thème clair pastel
+- 4 onglets : Upload & Analyse, Schéma, Résultats & Correction, Export
+- Sidebar avec statut du système et guide rapide
+- Composants UI réutilisables (badges confiance, metric cards, header)
+- Correction du chemin Tesseract OCR pour Windows
+- Tests avec fichiers TXT et factures
+
+### Difficultés rencontrées
+- Tesseract non installé sur certains PC → ajout chemin explicite
+- Modèle Groq llama3-70b-8192 déprécié → migration vers llama-3.3-70b-versatile
+- Thème CSS personnalisé pour look professionnel et neutre
+
+### Choix techniques
+- Thème pastel bleu clair pour interface professionnelle
+- Suppression des mentions IA dans l'interface
+- Session state Streamlit pour persister les données entre onglets
+
+### Prochaine étape
+- Finalisation : README, SPEC, tests unitaires
