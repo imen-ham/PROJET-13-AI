@@ -1,4 +1,4 @@
-# 📄 FormExtract AI — Projet 13
+#  FormExtract AI — Projet 13
 
 > Extracteur intelligent de données depuis des formulaires (PDF, TXT, Image)
 
