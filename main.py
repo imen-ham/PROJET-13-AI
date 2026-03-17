@@ -18,6 +18,10 @@ from app.extractor.schema_manager import SchemaManager
 from app.validator.data_validator import DataValidator
 from app.ui.components import confidence_badge, status_icon, metric_card, render_header
 from app.config import Config
+from app.database import init_db, save_extraction, get_all_extractions, get_extraction_by_id, delete_extraction, clear_all
+
+# ─── Init BDD ────────────────────────────────────────────────────────────────
+init_db()
 
 # ─── CSS global ─────────────────────────────────────────────────────────────
 st.markdown("""
@@ -137,7 +141,13 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # ─── Tabs ────────────────────────────────────────────────────────────────────
-tab1, tab2, tab3, tab4 = st.tabs(["📤 Upload & Analyse", "📋 Schéma", "✏️ Résultats & Correction", "📥 Export"])
+tab1, tab2, tab3, tab4, tab5 = st.tabs([
+    "📤 Upload & Analyse",
+    "📋 Schéma",
+    "✏️ Résultats & Correction",
+    "📥 Export",
+    "🕓 Historique"
+])
 
 # ══════════════════════════════════════════════════════════════════════════════
 # TAB 1 — Upload & Analyse
@@ -191,7 +201,7 @@ with tab1:
 
             with st.expander("👁️ Aperçu du contenu détecté"):
                 if raw_text.strip():
-                    st.text_area("", raw_text[:3000], height=200, disabled=True)
+                    st.text_area("Contenu", raw_text[:3000], height=200, disabled=True, label_visibility="collapsed")
                 else:
                     st.error("❌ Aucun contenu détecté. Vérifiez le fichier.")
 
@@ -221,6 +231,15 @@ with tab1:
                     st.session_state.corrections = {
                         k: v.get("value") for k, v in validated.get("validated_fields", {}).items()
                     }
+
+                    # Sauvegarde dans la BDD
+                    if uploaded_file:
+                        save_extraction(
+                            fichier=uploaded_file.name,
+                            schema_nom=selected_name,
+                            validated_data=validated,
+                            export_data={k: v.get("value") for k, v in validated.get("validated_fields", {}).items()}
+                        )
 
                 st.success("✅ Analyse terminée ! Consultez l'onglet **Résultats & Correction**")
 
@@ -427,6 +446,72 @@ with tab4:
             st.markdown("---")
             st.markdown("##### 📊 Tableau récapitulatif")
             st.dataframe(csv_data, use_container_width=True, hide_index=True)
+
+# ══════════════════════════════════════════════════════════════════════════════
+# TAB 5 — Historique
+# ══════════════════════════════════════════════════════════════════════════════
+with tab5:
+    st.markdown("### 🕓 Historique des extractions")
+
+    extractions = get_all_extractions()
+
+    if not extractions:
+        st.info("📭 Aucune extraction enregistrée pour le moment.")
+    else:
+        # Métriques globales
+        c1, c2, c3 = st.columns(3)
+        metric_card(c1, "Total extractions", len(extractions), color="#7c9ef5")
+        avg_conf = sum(e[7] for e in extractions) / len(extractions)
+        metric_card(c2, "Fiabilité moyenne", f"{avg_conf:.0%}", color="#6bc8a0")
+        total_detectes = sum(e[5] for e in extractions)
+        metric_card(c3, "Champs détectés au total", total_detectes, color="#5bc4d4")
+
+        st.markdown("---")
+
+        # Tableau historique
+        hist_data = []
+        for e in extractions:
+            hist_data.append({
+                "ID": e[0],
+                "Date": e[1],
+                "Fichier": e[2],
+                "Schéma": e[3],
+                "Détectés": e[5],
+                "Valides": e[6],
+                "Fiabilité": f"{e[7]:.0%}"
+            })
+
+        df = pd.DataFrame(hist_data)
+        st.dataframe(df, use_container_width=True, hide_index=True)
+
+        st.markdown("---")
+
+        col1, col2 = st.columns(2)
+
+        with col1:
+            st.markdown("#### 🔍 Voir les détails")
+            selected_id = st.selectbox(
+                "Sélectionner une extraction",
+                [e[0] for e in extractions],
+                format_func=lambda x: f"#{x} — {next(e[2] for e in extractions if e[0] == x)}"
+            )
+
+            if st.button("📄 Afficher les données"):
+                extraction = get_extraction_by_id(selected_id)
+                if extraction:
+                    st.json(json.loads(extraction[8]))
+
+        with col2:
+            st.markdown("#### 🗑️ Gestion")
+            if st.button("❌ Supprimer cette extraction"):
+                delete_extraction(selected_id)
+                st.success("✅ Extraction supprimée !")
+                st.rerun()
+
+            if st.button("🗑️ Vider tout l'historique"):
+                clear_all()
+                st.success("✅ Historique vidé !")
+                st.rerun()
 
 # ─── Footer ──────────────────────────────────────────────────────────────────
 st.markdown("""

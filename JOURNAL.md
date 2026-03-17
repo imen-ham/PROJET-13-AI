@@ -142,3 +142,18 @@
 - Application complète et fonctionnelle
 - 34 tests unitaires passés avec succès
 - Interface professionnelle et intuitive
+---
+
+## Partie 7 — Historique des extractions (SQLite)
+**Date :** 17/03/2026    
+
+### Ce qui a été fait
+- Ajout base de données SQLite pour stocker l'historique
+- Nouveau module app/database.py
+- Onglet Historique avec métriques globales
+- Tableau de toutes les extractions passées
+- Possibilité de voir les détails, supprimer ou vider l'historique
+
+### Choix techniques
+- SQLite : léger, sans configuration, intégré à Python
+- Stockage JSON des données extraites dans la BDD
