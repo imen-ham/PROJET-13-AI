@@ -112,7 +112,6 @@
 
 ### Choix techniques
 - Thème pastel bleu clair pour interface professionnelle
-- Suppression des mentions IA dans l'interface
 - Session state Streamlit pour persister les données entre onglets
 
 ### Prochaine étape
