@@ -44,11 +44,18 @@ PROJET-13-AI/
 │   ├── ui/
 │   │   └── components.py         # Composants UI
 │   └── config.py                 # Configuration
+├── tests/
+│   ├── test_validator.py         # Tests validation
+│   ├── test_extractor.py         # Tests extraction
+│   └── test_schema.py            # Tests schémas
 ├── schemas/                      # Schémas JSON
+├── sample_forms/                 # Formulaires exemples
 ├── main.py                       # Application Streamlit
 ├── requirements.txt
-└── .env.example
-```
+├── .env.example
+├── JOURNAL.md                    # Journal de développement
+├── spec.md                       # Specifications techniques
+└── README.md
 
 ---
 
