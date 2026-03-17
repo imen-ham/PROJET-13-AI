@@ -82,6 +82,7 @@ PROJET-13-AI/
 │
 ├── app/
 │   ├── config.py                # Configuration centralisée
+│   ├── database.py              # Historique SQLite
 │   ├── extractor/
 │   │   ├── pdf_extractor.py     # Extraction PDF
 │   │   ├── image_extractor.py   # OCR image
@@ -97,6 +98,9 @@ PROJET-13-AI/
     ├── test_validator.py        # Tests validation
     ├── test_extractor.py        # Tests extraction
     └── test_schema.py           # Tests schémas
+```
+    
+│   
 ```
 
 ---
@@ -208,3 +212,11 @@ L'utilisateur peut définir ses propres champs via l'éditeur JSON intégré.
 -  Pas d'intégration temps réel avec systèmes externes
 -  Pas de génération de valeurs manquantes (null si absent)
 -  Pas d'authentification utilisateur
+## 11. Historique des extractions (SQLite)
+
+- Stockage automatique de chaque extraction
+- Table : id, date, fichier, schema, total_champs, detectes, valides, fiabilite, donnees
+- Statistiques visuelles : fiabilité par extraction, détectés vs valides
+- Recherche par fichier ou schéma
+- Export CSV de l'historique
+- Suppression individuelle ou totale

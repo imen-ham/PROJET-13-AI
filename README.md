@@ -27,6 +27,10 @@ et l'export de ces données grâce à l'intelligence artificielle.
 -  **Correction manuelle** dans l'interface
 -  **Export** JSON et CSV
 -  **Mode démo** sans clé API
+-  **Historique** des extractions avec SQLite
+-  **Statistiques visuelles** (graphiques fiabilité, détectés vs valides)
+-  **Recherche** dans l'historique par fichier ou schéma
+-  **Export CSV** de l'historique
 
 ---
 

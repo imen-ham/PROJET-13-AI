@@ -157,3 +157,17 @@
 ### Choix techniques
 - SQLite : léger, sans configuration, intégré à Python
 - Stockage JSON des données extraites dans la BDD
+---
+
+## Partie 8 — Statistiques visuelles et recherche
+**Date :** 17/03/2026  
+### Ce qui a été fait
+- Ajout de 2 graphiques dans l'onglet Historique
+- Graphique fiabilité par extraction (%)
+- Graphique champs détectés vs valides
+- Barre de recherche dans l'historique (par fichier ou schéma)
+- Export CSV de l'historique filtré
+
+### Choix techniques
+- st.bar_chart() de Streamlit pour les graphiques
+- Filtrage pandas sur le DataFrame de l'historique
