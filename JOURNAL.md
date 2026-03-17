@@ -171,3 +171,17 @@
 ### Choix techniques
 - st.bar_chart() de Streamlit pour les graphiques
 - Filtrage pandas sur le DataFrame de l'historique
+---
+
+## Partie 9 — CLI (Command Line Interface)
+**Date :** 17/03/2026  
+ 
+### Ce qui a été fait
+- Création de cli.py pour extraction en ligne de commande
+- Support fichiers TXT et PDF
+- Affichage résultats dans le terminal
+- Export JSON et CSV depuis la CLI
+- Arguments : --file, --schema, --output, --format
+
+### Utilisation
+python cli.py --file FACTURE.txt --schema Facture

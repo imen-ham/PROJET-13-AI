@@ -79,7 +79,7 @@ PROJET-13-AI/
 ├── JOURNAL.md                   # Journal de développement
 ├── README.md                    # Documentation publique
 ├── SPEC.md                      # Specifications techniques (ce fichier)
-│
+├── cli.py                       # Interface ligne de commande
 ├── app/
 │   ├── config.py                # Configuration centralisée
 │   ├── database.py              # Historique SQLite
@@ -220,3 +220,27 @@ L'utilisateur peut définir ses propres champs via l'éditeur JSON intégré.
 - Recherche par fichier ou schéma
 - Export CSV de l'historique
 - Suppression individuelle ou totale
+## 12. CLI — Interface ligne de commande
+
+L'application est accessible via deux interfaces :
+
+**Interface web** (Streamlit) :
+```bash
+streamlit run main.py
+```
+
+**Interface CLI** :
+```bash
+python cli.py --file FACTURE.txt --schema Facture
+```
+
+### Arguments CLI
+- `--file` → chemin du fichier à analyser (PDF ou TXT)
+- `--schema` → schéma JSON à utiliser
+- `--output` → fichier de sortie (défaut: result.json)
+- `--format` → format de sortie json ou csv
+
+### Avantages CLI
+- Automatisation dans des scripts
+- Intégration dans des pipelines
+- Utilisation sans navigateur

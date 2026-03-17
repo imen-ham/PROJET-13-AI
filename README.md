@@ -31,6 +31,7 @@ et l'export de ces données grâce à l'intelligence artificielle.
 -  **Statistiques visuelles** (graphiques fiabilité, détectés vs valides)
 -  **Recherche** dans l'historique par fichier ou schéma
 -  **Export CSV** de l'historique
+-  **CLI** — Extraction en ligne de commande sans interface graphique
 
 ---
 
@@ -59,6 +60,7 @@ PROJET-13-AI/
 ├── .env.example
 ├── JOURNAL.md                    # Journal de développement
 ├── spec.md                       # Specifications techniques
+├── cli.py                       # Interface ligne de commande
 └── README.md
 
 ---
@@ -125,6 +127,26 @@ streamlit run main.py
 - **JSON Schema** — Validation données
 
 ---
+##  Utilisation CLI
+```bash
+# Extraction basique
+python cli.py --file FACTURE.txt --schema Facture
+
+# Avec export JSON
+python cli.py --file formulaire.txt --schema "Formulaire générique" --output result.json
+
+# Avec export CSV
+python cli.py --file formulaire.pdf --schema Facture --output result.csv --format csv
+```
+
+### Arguments disponibles
+| Argument | Description | Obligatoire |
+|---|---|---|
+| `--file` | Chemin vers le fichier |  |
+| `--schema` | Schéma à utiliser |  (défaut: Formulaire générique) |
+| `--output` | Fichier de sortie |  (défaut: result.json) |
+| `--format` | Format de sortie (json/csv) |  (défaut: json) |
+```
 
 ##  Journal de développement
 
